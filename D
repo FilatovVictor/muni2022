@@ -1,0 +1,23 @@
+def check(x):
+    y = x[::-1]
+    for i in range(len(x)):
+        if x[i] == y[i]:
+            return False
+    return True
+
+a = input()
+if check(a):
+    count = 0
+    x = list(a)
+    for i in range(len(x)):
+        c = x[i]
+        sp = x[:i]
+        if c not in sp and c != "?":
+            p = x.copy()
+            p[p.index('?')] = c
+            p = "".join(p)
+            if check(p):
+                count += 1
+    print(count)
+else:
+    print(0)
